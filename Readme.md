@@ -3,7 +3,7 @@ This repo contains the source impulse responses for Cavern's headphone
 virtualizer.
 
 ## Cavern pipeline
-![Cavern pipeline](Cavern pipeline.png)
+![Cavern pipeline](Cavern%20pipeline.png)
 
 ## How it's made
 These impulse responses are home-made with a cheap setup. They offer mediocre
