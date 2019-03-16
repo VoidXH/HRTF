@@ -1,11 +1,11 @@
-#Cavern virtualizer measurements
+# Cavern virtualizer measurements
 This repo contains the source impulse responses for Cavern's headphone
 virtualizer.
 
-##Cavern pipeline
+## Cavern pipeline
 ![Cavern pipeline](Cavern pipeline.png)
 
-##How it's made
+## How it's made
 These impulse responses are home-made with a cheap setup. They offer mediocre
 spatial cues, but little artifacts with a flatter frequency response than most
 free HRTF databases. The results are based on a single subject, with the
