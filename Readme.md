@@ -16,5 +16,6 @@ impulses):
 * JBL E15 microphone in the pinna directed to the ear canal
 * Cavern 1.2 QuickEQ set to 65536 samples, using the room simulation export
 feature which is available in Cavern 1.3
+
 The usable frequency range of this setup is 120-12500 Hz. Any sound below 120 Hz
 shouldn't be spatialized even with IRs that support it.
