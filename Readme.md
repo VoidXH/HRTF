@@ -4,6 +4,7 @@ virtualizer.
 
 ## Cavern pipeline
 ![Cavern pipeline](Cavern%20pipeline.png)
+
 Since the impulses are cut to 64 samples, Cavern is optimized to this with
 calculating convolutions by definition, which means it's not a HRTF, but a HRIR.
 
