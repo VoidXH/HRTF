@@ -11,4 +11,6 @@ Channel: RL
 Convolution: 315 deg left ear ground level.wav
 Channel: R
 Convolution: 315 deg right ear ground level.wav
+Channel: LR RL
+Delay: 16 samples
 Copy: L=L+RL+LO R=R+LR+RO
