@@ -1,0 +1,14 @@
+Copy: LR=L RL=R LO=L RO=R
+Channel: LO RO
+GraphicEQ: 120 0; 121 -48; 12000 -48; 12001 0
+Channel: L R LR RL
+GraphicEQ: 120 -48; 121 0; 12000 0; 12001 -48
+Channel: L
+Convolution: 45 deg left ear ground level.wav
+Channel: LR
+Convolution: 45 deg right ear ground level.wav
+Channel: RL
+Convolution: 315 deg left ear ground level.wav
+Channel: R
+Convolution: 315 deg right ear ground level.wav
+Copy: L=L+RL+LO R=R+LR+RO
