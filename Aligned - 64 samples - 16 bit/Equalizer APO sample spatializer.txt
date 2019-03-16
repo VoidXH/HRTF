@@ -2,7 +2,7 @@ Copy: LR=L RL=R LO=L RO=R
 Channel: LO RO
 GraphicEQ: 120 0; 121 -48; 12000 -48; 12001 0
 Channel: L R LR RL
-GraphicEQ: 120 -48; 121 0; 12000 0; 12001 -48
+GraphicEQ: 120 -48; 121 6; 513.9 -1; 800 6; 1500 5; 2300 -4; 3200 2.6; 5000 -6.2; 12000 0; 12001 -48
 Channel: L
 Convolution: 45 deg left ear ground level.wav
 Channel: LR
