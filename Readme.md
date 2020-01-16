@@ -22,3 +22,9 @@ feature, which is available in Cavern 1.3
 
 The usable frequency range of this setup is 120-12500 Hz. Any sound below 120 Hz
 shouldn't be spatialized, even with IRs that support it.
+
+## How to use the examples
+The example names are their use case. However, to virtualize actual 5.1, remove
+the matrix splitting part from the decoder. Most stereo-only devices (like
+notebook sound cards, stereo DACs) don't have a way of acquiring multichannel
+audio on the OS level, this is sadly the best you can use.
