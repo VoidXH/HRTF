@@ -1,0 +1,44 @@
+Include: ..\8k aligned\LFE only.txt
+# Separate unmodified signal
+Copy: LO=L RO=R
+# Split stereo to LCR
+Copy: L=0.5*L+-0.5*R R=-0.5*L+0.5*R C=0.5*L+0.5*R
+# Simulate a center wall bounce to sell the effect better
+Copy: CD=C
+Channel: CD
+Preamp: -20 dB
+Delay: 7.5 ms
+Copy: L=L+CD R=R+CD
+# Select the conversible range
+Channel: L R C
+GraphicEQ: 120 -48; 121 12; 10000 12; 10001 -48
+# Create signal paths for the other ears
+Copy: LR=L RL=R CR=C
+# Select the retain range
+Channel: LO RO
+GraphicEQ: 120 0; 121 -48; 10000 -48; 10001 0
+# Flatten responses
+Channel: L
+Convolution: 45 deg left ear ground level.wav
+GraphicEQ: 120 0; 218.4 -2.6; 440.3 -7; 714.8 -7.8; 1090.8 -5.8; 1234.4 -4.6; 1826.3 -10.6; 2221.5 -10.2; 2566.4 -8.2; 3154.1 -8.2; 3496.6 -10.6; 3836.5 -13.4; 4571.4 -8.6; 5173.4 9; 5735.1 -3; 7121.4 -11.8; 10756 -11.4; 12949 -9.8; 14062 -11.8; 14504 1.4; 18479.8 8.8; 21682 10.2; 24285 1.8
+Channel: LR
+Convolution: 45 deg right ear ground level.wav
+GraphicEQ: 120 4; 508.7 -2.2; 729.7 -1.8; 983.9 2.2; 1196.8 9.8; 1548.6 0.2; 1789.1 -2.6; 2066.8 -2.6; 2904.4 0.2; 3154.1 8.2; 4039.4 -2.2; 5335.8 1.4; 6833.7 26.6; 8934.3 21.4; 11681 15.4; 12426 20.2; 13918 7; 16245 15.4; 19357 28.6; 21682 6.6
+Channel: RL
+Convolution: 315 deg left ear ground level.wav
+GraphicEQ: 120 4; 678.9 -3.8; 994.1 1.8; 1247.2 10.6; 1326.8 10.2; 1396.9 6.2; 1864.4 -0.2; 2514 0.2; 2995.6 2.2; 3532.8 8.6; 3876.3 3.4; 4524.5 5.8; 4913.4 15.4; 7894.7 8.2; 11036.7 8; 11561 17.8; 13563.8 11.6; 16079 29; 19159 23.4; 20806 13.8; 21459 3.4
+Channel: R
+GraphicEQ: 120 0; 714.8 -9.4; 1470.8 -6.6; 2024.7 -12.2; 2488.3 -11.8; 3219.8 -5; 3957 -17; 4863.1 -16.2; 5794.6 -9.4; 6490.4 -0.6; 7048.3 9; 9602.8 -1.8; 14504 -13.4; 16245 7.4; 18010 14.6; 21239 5; 24537 -6.6
+Convolution: 315 deg right ear ground level.wav
+Channel: C
+Convolution: 0 deg left ear ground level.wav
+GraphicEQ: 120 1; 535.6 -7; 817.3 -6.6; 1090.8 -3.4; 1313.2 -4.6; 1613.8 -9.4; 1983.4 -9.8; 2647 -7.8; 3425.2 -7; 3957 -12.2; 4524.5 -10.6; 5173.4 -2.6; 6292.7 -7; 10007 -7.4; 12555 -1.8; 12685 -7.4; 14208 -7; 14959 3; 17282 12.6; 20913.3 13.6; 23184.3 6
+Channel: CR
+Convolution: 0 deg right ear ground level.wav
+GraphicEQ: 120 0; 503.4 -5.8; 671.9 -5.4; 994.1 -4.6; 1903.2 -10.6; 2593 -10.6; 3089.7 -6.2; 4081.3 -13.4; 5067.8 -19; 6038.5 -3.4; 7421.2 12.2; 8485.4 12.6; 9120.4 4.6; 9904.5 9; 10980 1; 12555 4.6; 14208 -7; 16584 0.2; 18385 15.8; 21239 11
+# Directivity fine tuning
+Channel: LR RL
+Delay: 63 samples
+Preamp: -10 dB
+# Downmix
+Copy: L=L+LO+RL+C R=R+RO+LR+CR
