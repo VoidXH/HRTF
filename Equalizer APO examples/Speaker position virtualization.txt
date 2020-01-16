@@ -1,4 +1,3 @@
-Include: ..\8k aligned\LFE only.txt
 # Separate unmodified signal
 Copy: LO=L RO=R
 # Split stereo to LCR
