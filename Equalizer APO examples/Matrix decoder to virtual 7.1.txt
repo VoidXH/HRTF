@@ -1,0 +1,37 @@
+# Separate unmodified signal
+Copy: LO=L RO=R
+# Select the conveRRible range
+Channel: L R
+GraphicEQ: 80 -48; 81 -12; 20000 -12; 20001 -48
+# Select the retain range
+Channel: LO RO
+GraphicEQ: 80 0; 81 -48
+# Split stereo
+Copy: C=0.707*L+0.707*R LS=L+-1.0*R RS=-1*L+R LR=L+-0.5*R RR=-0.5*L+R
+# Create other ear channeLR
+Copy: LR=L RL=R CR=C LSR=LS RSL=RS LRR=LR RRL=RR
+# Flatten responses
+Channel: L LR
+Convolution: 45_0_ultraflat.wav
+Channel: R RL
+Convolution: 315_0_ultraflat.wav
+Channel: C CR
+Convolution: 0_0_ultraflat.wav
+Channel: LS LSR
+Convolution: 90_0_ultraflat.wav
+Channel: RS RSR
+Convolution: 270_0_ultraflat.wav
+Channel: LR LRR
+Convolution: 135_0_ultraflat.wav
+Channel: RR RRL
+Convolution: 225_0_ultraflat.wav
+# Directivity fine tuning
+Channel: LR RL LRR RRL
+Delay: 17 samples
+Channel: LSR RSL
+Delay: 33 samples
+# Downmix
+Copy: L=L+LO+C+LS+LR+RL+RSL+RRL R=R+RO+RS+RR+LR+CR+LSR+LRR
+Channel: L R
+Filter: ON PK Fc 200 Hz Gain -3 dB Q 0.8
+Filter: ON PK Fc 16000 Hz Gain 1.5 dB Q 0.5
